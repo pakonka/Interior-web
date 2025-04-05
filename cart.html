@@ -1,0 +1,29 @@
+<!-- <ion-icon name="cart-outline" class="cartbtn"></ion-icon> -->
+<!-- <div class="cartbtn">
+  <span >CART <span id="addnumber"></span></span>
+  <ion-icon name="cart-outline"></ion-icon>
+</div> -->
+
+<section class="cart">
+  <ion-icon name="close-outline" class="cart-exit"></ion-icon>
+
+  <h2 style="text-align: center">My Shopping Cart</h2>
+  <br />
+  <form action="">
+    <table onload="showcart()" >
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Select</th>
+        </tr>
+      </thead>
+      <tbody onload="showcart()" id="ttgiohang" ></tbody>
+    </table>
+    <div class="price-total">Total: $<span>0</span></div>
+    <button>CHECK OUT</button>
+  </form>
+</section>
+
+

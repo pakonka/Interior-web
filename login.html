@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleLogin.css">
+    <title>Login & Register GRI</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              }      
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        };
+        </script>
+</head>
+<div w3-include-html="header.html"></div> 
+<body>
+ <div class="wrapper">
+    <nav class="nav">
+        <!-- <div class="nav-logo">
+            <p>Group 1</p>
+        </div> -->
+       
+        <div class="nav-button">
+            <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+            <button class="btn" id="registerBtn" onclick="register()">Sign up</button>
+        </div>
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+<!----------------------------- Box ----------------------------------->    
+    <div class="form-box">
+        
+        <!-------------------Form Login -------------------------->
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>Don't have an account yet? <a href="#" onclick="register()">Sign up</a></span>
+                <h2>Sign in</h2>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Email">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Sign in">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="login-check">
+                    <label for="login-check">Remember password</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Forgot password?</a></label>
+                </div>
+            </div>
+        </div>
+        <!------------------- registration form -------------------------->
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>Already have an account? <a href="#" onclick="login()">Sign in</a></span>
+                <h2>Sign up</h2>
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Firstname">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Lastname">
+                    <i class="bx bx-user"></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Email">
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Sign up">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check"> Remember password</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Terms of service</a></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+<div w3-include-html="footer.html"></div>
+<script>
+   
+   function myMenuFunction() {
+    var i = document.getElementById("navMenu");
+    if(i.className === "nav-menu") {
+        i.className += " responsive";
+    } else {
+        i.className = "nav-menu";
+    }
+   }
+ 
+</script>
+<script>
+    var a = document.getElementById("loginBtn");
+    var b = document.getElementById("registerBtn");
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    function login() {
+        x.style.left = "4px";
+        y.style.right = "-520px";
+        a.className += " white-btn";
+        b.className = "btn";
+        x.style.opacity = 1;
+        y.style.opacity = 0;
+    }
+    function register() {
+        x.style.left = "-510px";
+        y.style.right = "5px";
+        a.className = "btn";
+        b.className += " white-btn";
+        x.style.opacity = 0;
+        y.style.opacity = 1;
+    }
+</script>
+<script>
+    includeHTML();
+    </script>
+</body>
+</html>

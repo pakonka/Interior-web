@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      main {
+        margin-bottom: 50px;
+      }
+      .bg-vid {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: -100;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+      }
+      header {
+        border-top: 1px solid rgb(186, 186, 186);
+        border-bottom: 1px solid rgb(186, 186, 186);
+        text-transform: uppercase;
+        display: flex;
+        /* justify-content: space-between; */
+        align-items: center;
+        width: 100%;
+        padding: 0 20%;
+        border-bottom: 1px solid #dbdbdb;
+        align-items: center;
+      }
+
+      header ul li {
+        display: inline-block;
+        list-style: none;
+        margin: 0 30px;
+      }
+
+      header ul li:last-child {
+        margin-right: 0;
+      }
+
+      header ul li a {
+        text-decoration: none;
+        color: #42424a;
+        padding: 3px 0;
+        display: inline-block;
+        transition: all ease 0.1s;
+        font-weight: 500 !important;
+        font-size: 10pt;
+      }
+
+      header ul li a:hover {
+        color: #989898;
+        font-size: 9pt;
+      }
+
+      header ul .submenu {
+        position: absolute;
+        width: 200px;
+        background-color: #ffffff;
+        box-shadow: 0 20px 45px #00000020;
+        margin-top: -50px;
+        opacity: 0;
+        z-index: -999;
+        transition: all ease 0.5s;
+      }
+      header ul li:hover .submenu {
+        z-index: 99;
+        opacity: 1;
+        margin-top: 0;
+      }
+
+      header ul .submenu li {
+        margin: 0;
+        width: 100%;
+      }
+
+      header ul .submenu li a {
+        padding: 15px 5px;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .hero_sec {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .logo a {
+        text-decoration: none;
+        color: #42424a;
+        font-weight: 700;
+        font-size: 30pt;
+        padding: 10px 10%;
+        text-transform: uppercase;
+        float: left;
+      }
+      .search {
+        padding: 10px 10%;
+        float: left;
+      }
+      form.example input[type="text"] {
+        padding: 10px;
+        border: 1px solid rgb(209, 209, 209);
+        border-right: none;
+        float: left;
+        width: 80%;
+        background: white;
+      }
+      form.example {
+        width: 450px;
+      }
+      form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        color: rgb(148, 147, 147);
+        border: 1px solid rgb(209, 209, 209);
+        border-left: none;
+        cursor: pointer;
+        background-color: white;
+      }
+
+      form.example button:hover {
+        background: #ffffff;
+      }
+      form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      input::placeholder {
+        font-size: 10pt;
+      }
+      .scroll {
+        width: 100%;
+        position: fixed;
+        transition: 0.4s;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        background-color: white;
+      }
+      @media screen and (max-width: 780px) {
+        header nav ul li a {
+          padding: 0;
+          margin:0;
+          display: flex;
+          flex-direction: row;
+          float: left;
+          width: 100% ;
+        }
+        ul{
+          display: inline !important;
+          padding:0;
+          margin:0;
+        }
+        body{
+          background-attachment: fixed;
+          background-size: cover;
+          margin-top: 180px;
+        }
+        header {
+          padding:0;
+        }
+        .search,.logo{
+          margin:0;
+          padding:0;
+        }
+      }
+      .logo-img img{
+        width: 150px;
+      }
+      .header-top{
+        display: flex;
+        
+        margin: 10px;
+        margin-left: 100px;
+      }
+    </style>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <main class="scroll">
+      <div class="header-top">
+        <div class="logo-img">
+          <img src="f7500f97-17ec-408e-a6db-bb022ae82232.jpg" alt="">
+        </div>
+        <div class="logo">
+          <a href="index.html">Group1</a>
+        </div>
+        <div class="search">
+          <form class="example" style="margin: auto; max-width: 300px">
+            <input
+              type="text"
+              placeholder="What can we help you find?"
+              name="search2"
+            />
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </div>      
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html">home page</a>
+              <ul class="submenu">
+                <li><a href="#page1">Furniture</a></li>
+                <li><a href="#page2">Trending</a></li>
+                <li><a href="#page3">Best Seller</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="./pages/page8.html">Morden Furniture</a>
+              <ul class="submenu">
+                <li><a href="./pages/page4.html">Dining Chair</a></li>
+                <li><a href="./pages/page5.html">Mordern Sofa</a></li>
+                <li><a href="./pages/page6.html">Bedroom</a></li>
+                <li><a href="./pages/page7.html">Tables</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="./pages/page9.html">trending styles</a>
+              <ul class="submenu">
+                <li><a href="./pages/page1.html">mid-century mordern</a></li>
+                <li><a href="./pages/page2.html">scandinavia design</a></li>
+                <li><a href="./pages/page3.html">Modern farmhouse</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="login.html"
+                ><span>Contact</span> &nbsp<ion-icon
+                  name="people-outline"
+                ></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a>
+                <div class="cartbtn">
+                  <span>CART <span id="addnumber"></span></span>
+                  <ion-icon name="cart-outline"></ion-icon>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </main>
+    <video autoplay Muted loop class="bg-vid">
+      <source Src="bg-vid.mp4">
+    </video>
+  </body>
+</html>
