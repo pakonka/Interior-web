@@ -1,32 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bok Dining Chair</title>
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
     <script>
       $(() => {
         $(".image-slider img").click(function () {
@@ -36,90 +26,134 @@
       });
     </script>
   </head>
+
   <body>
     <div w3-include-html="../header1.html"></div>
+
     <div class="div-slider">
       <div class="image-slider">
         <img
           src="https://www.2modern.com/cdn/shop/products/ethnicraft-bok-dining-chair_580x.jpg?v=1656548488"
-          alt=""
         />
         <img
           src="https://www.2modern.com/cdn/shop/products/bok-dining-chair_view-add02_580x.jpg?v=1684989971"
-          alt=""
         />
-        <img src="https://www.2modern.com/cdn/shop/products/bok-dining-chair_view-add06_580x.jpg?v=1656548488" alt="">
-        <img src="https://www.2modern.com/cdn/shop/products/bok-dining-chair_view-add07_580x.jpg?v=1684989971" alt="">
+        <img
+          src="https://www.2modern.com/cdn/shop/products/bok-dining-chair_view-add06_580x.jpg?v=1656548488"
+        />
+        <img
+          src="https://www.2modern.com/cdn/shop/products/bok-dining-chair_view-add07_580x.jpg?v=1684989971"
+        />
       </div>
+
       <div class="main-image">
         <img
           src="https://www.2modern.com/cdn/shop/products/ethnicraft-bok-dining-chair_580x.jpg?v=1656548488"
-          alt=""
           id="main-image"
         />
       </div>
+
       <div class="slider-buy">
         <h1>Bok Dining Chair</h1>
-        <ion-icon name="heart-outline" class="heart-outline"></ion-icon>
-        <i>from <strong>$ <span>869</span></strong></i>
+
+        <i
+          >from <strong>$ <span>869</span></strong></i
+        >
+
         <div class="grid-buy">
-          <input style="margin:10px;width: 70px; text-align: center;" type="number" min="1" value="1"></input>
-          <button>ADD TO CART</button>
+          <input
+            type="number"
+            min="1"
+            value="1"
+            style="margin: 10px; width: 70px; text-align: center"
+          />
+          <button id="addCartBtn">ADD TO CART</button>
         </div>
+
         <div class="shipping">
           <ul>
-            <li><ion-icon name="document-outline"></ion-icon><span><strong>Shipping cost:</strong> Free Shipping</span></li>
-            <li><ion-icon name="time-outline"></ion-icon><span><strong>Shipping time:</strong> Ships in 8-10 business days</span></li>
-            <li><ion-icon name="shield-checkmark-outline"></ion-icon><span><strong>Shop with Confidence:</strong> 30 Day Return</span></li>
+            <li>Free Shipping</li>
+            <li>Ships in 8-10 business days</li>
+            <li>30 Day Return</li>
           </ul>
         </div>
+      </div>
     </div>
-    </div>
+
     <div class="middle-line">
-      <div><ion-icon name="medal-outline"></ion-icon><span>Best Seller</span></div>
-      <div><ion-icon name="leaf-outline"></ion-icon><span>Subtainable Brand</span></div>
-      <div><ion-icon name="shield-outline"></ion-icon><span>Warranty Included</span></div>
+      <div>Best Seller</div>
+      <div>Sustainable Brand</div>
+      <div>Warranty Included</div>
     </div>
+
     <div class="slider-description">
       <div class="description-left">
-      <h2><strong>Why We Love It</strong></h2>
-      <p><strong>EFFORTLESS DESIGN</strong> <br>
-        Arrives fully assembled and ready to use.</p>
-      <p><strong>NORDIC COOL</strong> <br>
-        Detailed joinery makes Scandi design stand out.</p>
-      <p><strong>ECO-FRIENDLY DESIGN </strong><br>
-        Crafted from sustainably-sourced materials.
-      </p>
+        <h2>Why We Love It</h2>
+        <p>Arrives fully assembled and ready to use.</p>
+        <p>Scandi design detail.</p>
+        <p>Sustainably sourced materials.</p>
+      </div>
+
+      <div class="description-main">
+        <strong>Description</strong>
+        <p>
+          Stylish dining chair crafted from solid oak wood with Nordic design.
+        </p>
+      </div>
     </div>
-    <div class="description-main">
-              <strong>Description</strong><br><br>
-              Stylish and sturdy, crafted from solid oak wood, the graceful lines of the Bok Dining Chair from Ethnicraft complement a wide range of modern interiors. Displaying soft, comforting curves, this light and airy dining chair features traditional joinery and sustainable Scandi craftsmanship, ensuring a lasting impression for years to come.
-        <br><br>
-        <strong>Highlight</strong>
-        <ul>
-        <li>Masterfully crafted from solid oak wood</li>
-        <li>Detailed joinery makes for a timeless, lasting design</li>
-        <li>Hardwax oil finish lets the unique natural wood grain shine through</li>
-        </ul>
-     </div>
-    </div>
+
+    <!-- CART + FOOTER -->
     <div w3-include-html="../cart.html"></div>
     <div w3-include-html="../footer.html"></div>
-    <!-- <script src="../w3.js"></script> -->
-    <script>
-        w3.includeHTML(function() { 
-            // console.log(123);
-const cartexit= document.querySelector('.cart-exit')
-const cartshow=document.querySelector('.cartbtn')
 
-cartshow.addEventListener("click",function(){
-    document.querySelector('.cart').style.right="0"
-})
-cartexit.addEventListener("click",function(){
-    document.querySelector('.cart').style.right="-100%"
-})
-    });
+    <script src="../js/script1.js"></script>
+
+    <script>
+      w3.includeHTML(() => {
+        const cartBtn = document.querySelector(".cartbtn");
+        const cartClose = document.querySelector(".cart-exit");
+
+        const btn = document.getElementById("addCartBtn");
+
+        btn.addEventListener("click", () => {
+          const product = document.querySelector(".slider-buy");
+
+          const img = document.querySelector("#main-image").src;
+          const name = product.querySelector("h1").textContent;
+          const price = parseFloat(product.querySelector("span").textContent);
+          const qty = parseInt(product.querySelector("input").value);
+
+          window.addcart({
+            id: name,
+            img,
+            name,
+            price,
+            qtt: qty,
+          });
+
+          const cart = document.querySelector(".cart");
+
+          if (cart) {
+            cart.classList.add("active");
+          } else {
+            console.log("Cart not found");
+          }
+        });
+
+        // open button
+        if (cartBtn) {
+          cartBtn.addEventListener("click", () => {
+            document.querySelector(".cart")?.classList.add("active");
+          });
+        }
+
+        // close button
+        if (cartClose) {
+          cartClose.addEventListener("click", () => {
+            document.querySelector(".cart")?.classList.remove("active");
+          });
+        }
+      });
     </script>
-    <script src="../script1.js"></script>
   </body>
 </html>

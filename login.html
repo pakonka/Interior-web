@@ -1,185 +1,375 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styleLogin.css">
-    <title>Login & Register GRI</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login & Register | INTERIOR</title>
+
+    <!-- FONT -->
     <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- BOXICONS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- ICON -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- w3.js -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script>
-        function includeHTML() {
-          var z, i, elmnt, file, xhttp;
-          /*loop through a collection of all HTML elements:*/
-          z = document.getElementsByTagName("*");
-          for (i = 0; i < z.length; i++) {
-            elmnt = z[i];
-            /*search for elements with a certain atrribute:*/
-            file = elmnt.getAttribute("w3-include-html");
-            if (file) {
-              /*make an HTTP request using the attribute value as the file name:*/
-              xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-                  /*remove the attribute, and call this function once more:*/
-                  elmnt.removeAttribute("w3-include-html");
-                  includeHTML();
-                }
-              }      
-              xhttp.open("GET", file, true);
-              xhttp.send();
-              /*exit the function:*/
-              return;
-            }
-          }
-        };
-        </script>
-</head>
-<div w3-include-html="header.html"></div> 
-<body>
- <div class="wrapper">
-    <nav class="nav">
-        <!-- <div class="nav-logo">
-            <p>Group 1</p>
-        </div> -->
-       
-        <div class="nav-button">
-            <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
-            <button class="btn" id="registerBtn" onclick="register()">Sign up</button>
-        </div>
-        <div class="nav-menu-btn">
-            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
-        </div>
-    </nav>
-<!----------------------------- Box ----------------------------------->    
-    <div class="form-box">
-        
-        <!-------------------Form Login -------------------------->
-        <div class="login-container" id="login">
-            <div class="top">
-                <span>Don't have an account yet? <a href="#" onclick="register()">Sign up</a></span>
-                <h2>Sign in</h2>
-            </div>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      body {
+        background: #f5f5f5;
+        min-height: 100vh;
+        /* Bù trừ chiều cao header fixed (khoảng 130px) */
+        padding-top: 130px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* WRAPPER */
+      .wrapper {
+        width: 100%;
+        min-height: calc(100vh - 130px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+      }
+
+      /* FORM BOX */
+      .form-box {
+        width: 500px;
+        min-height: 580px;
+        background: white;
+        position: relative;
+        overflow: hidden;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .form-container {
+        width: 100%;
+        transition: 0.4s ease;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .top {
+        margin-bottom: 35px;
+        text-align: center;
+      }
+
+      .top span {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .top span a {
+        color: #111;
+        font-weight: 600;
+      }
+
+      .top h2 {
+        margin-top: 10px;
+        font-size: 32px;
+        color: #111;
+      }
+
+      /* INPUT */
+      .input-box {
+        margin-bottom: 22px;
+        position: relative;
+      }
+
+      .input-field {
+        width: 100%;
+        height: 52px;
+        border: 1px solid #dcdcdc;
+        padding: 0 45px;
+        outline: none;
+        font-size: 15px;
+        transition: 0.3s;
+        background: #fafafa;
+      }
+
+      .input-field:focus {
+        border-color: #222;
+        background: white;
+      }
+
+      .input-box i {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #555;
+        font-size: 18px;
+      }
+
+      /* TWO FORMS */
+      .two-forms {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      /* SUBMIT */
+      .submit {
+        width: 100%;
+        height: 50px;
+        border: none;
+        background: #222;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .submit:hover {
+        background: #444;
+      }
+
+      /* OPTIONS */
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .two-col label {
+        cursor: pointer;
+      }
+
+      .two-col a {
+        color: #111;
+      }
+
+      .two-col a:hover {
+        text-decoration: underline;
+      }
+
+      .one {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      /* RESPONSIVE */
+      @media screen and (max-width: 768px) {
+        body {
+          padding-top: 110px;
+        }
+        .form-box {
+          width: 100%;
+          max-width: 450px;
+          padding: 30px 20px;
+        }
+        .two-forms {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .top h2 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- INCLUDE HEADER (có cart, menu, logo...) -->
+    <div w3-include-html="header.html"></div>
+
+    <main class="wrapper">
+      <div class="form-box">
+        <!-- LOGIN -->
+        <div class="form-container" id="loginForm">
+          <div class="top">
+            <span>
+              Don't have an account?
+              <a href="#" id="toRegister"> Sign up </a>
+            </span>
+            <h2>Sign In</h2>
+          </div>
+
+          <form id="loginFormElement">
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Email">
-                <i class="bx bx-user"></i>
+              <input
+                type="email"
+                class="input-field"
+                placeholder="Email"
+                required
+              />
+              <i class="bx bx-envelope"></i>
             </div>
+
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
-                <i class="bx bx-lock-alt"></i>
+              <input
+                type="password"
+                class="input-field"
+                placeholder="Password"
+                required
+              />
+              <i class="bx bx-lock-alt"></i>
             </div>
+
             <div class="input-box">
-                <input type="submit" class="submit" value="Sign in">
+              <button type="submit" class="submit">Sign In</button>
             </div>
+
             <div class="two-col">
-                <div class="one">
-                    <input type="checkbox" id="login-check">
-                    <label for="login-check">Remember password</label>
-                </div>
-                <div class="two">
-                    <label><a href="#">Forgot password?</a></label>
-                </div>
+              <div class="one">
+                <input type="checkbox" id="remember" />
+                <label for="remember"> Remember me </label>
+              </div>
+              <div>
+                <a href="#"> Forgot password? </a>
+              </div>
             </div>
+          </form>
         </div>
-        <!------------------- registration form -------------------------->
-        <div class="register-container" id="register">
-            <div class="top">
-                <span>Already have an account? <a href="#" onclick="login()">Sign in</a></span>
-                <h2>Sign up</h2>
-            </div>
+
+        <!-- REGISTER -->
+        <div class="form-container hidden" id="registerForm">
+          <div class="top">
+            <span>
+              Already have an account?
+              <a href="#" id="toLogin"> Sign in </a>
+            </span>
+            <h2>Sign Up</h2>
+          </div>
+
+          <form id="registerFormElement">
             <div class="two-forms">
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Firstname">
-                    <i class="bx bx-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Lastname">
-                    <i class="bx bx-user"></i>
-                </div>
+              <div class="input-box">
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="First Name"
+                  required
+                />
+                <i class="bx bx-user"></i>
+              </div>
+
+              <div class="input-box">
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Last Name"
+                  required
+                />
+                <i class="bx bx-user"></i>
+              </div>
             </div>
+
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Email">
-                <i class="bx bx-envelope"></i>
+              <input
+                type="email"
+                class="input-field"
+                placeholder="Email"
+                required
+              />
+              <i class="bx bx-envelope"></i>
             </div>
+
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
-                <i class="bx bx-lock-alt"></i>
+              <input
+                type="password"
+                class="input-field"
+                placeholder="Password"
+                required
+              />
+              <i class="bx bx-lock-alt"></i>
             </div>
+
             <div class="input-box">
-                <input type="submit" class="submit" value="Sign up">
+              <button type="submit" class="submit">Sign Up</button>
             </div>
+
             <div class="two-col">
-                <div class="one">
-                    <input type="checkbox" id="register-check">
-                    <label for="register-check"> Remember password</label>
-                </div>
-                <div class="two">
-                    <label><a href="#">Terms of service</a></label>
-                </div>
+              <div class="one">
+                <input type="checkbox" id="agree" required />
+                <label for="agree"> Accept Terms </label>
+              </div>
+              <div>
+                <a href="#"> Terms of Service </a>
+              </div>
             </div>
+          </form>
         </div>
-    </div>
-</div>   
-<div w3-include-html="footer.html"></div>
-<script>
-   
-   function myMenuFunction() {
-    var i = document.getElementById("navMenu");
-    if(i.className === "nav-menu") {
-        i.className += " responsive";
-    } else {
-        i.className = "nav-menu";
-    }
-   }
- 
-</script>
-<script>
-    var a = document.getElementById("loginBtn");
-    var b = document.getElementById("registerBtn");
-    var x = document.getElementById("login");
-    var y = document.getElementById("register");
-    function login() {
-        x.style.left = "4px";
-        y.style.right = "-520px";
-        a.className += " white-btn";
-        b.className = "btn";
-        x.style.opacity = 1;
-        y.style.opacity = 0;
-    }
-    function register() {
-        x.style.left = "-510px";
-        y.style.right = "5px";
-        a.className = "btn";
-        b.className += " white-btn";
-        x.style.opacity = 0;
-        y.style.opacity = 1;
-    }
-</script>
-<script>
-    includeHTML();
+      </div>
+    </main>
+
+    <!-- INCLUDE FOOTER -->
+    <div w3-include-html="footer.html"></div>
+
+    <script>
+      w3.includeHTML(() => {
+        // Chuyển đổi giữa Login và Register
+        const loginBtn = document.getElementById("loginBtn");
+        const registerBtn = document.getElementById("registerBtn");
+        const loginForm = document.getElementById("loginForm");
+        const registerForm = document.getElementById("registerForm");
+        const toRegister = document.getElementById("toRegister");
+        const toLogin = document.getElementById("toLogin");
+
+        function showLogin() {
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+          if (loginBtn && registerBtn) {
+            loginBtn.classList.add("white-btn");
+            registerBtn.classList.remove("white-btn");
+          }
+        }
+
+        function showRegister() {
+          registerForm.classList.remove("hidden");
+          loginForm.classList.add("hidden");
+          if (registerBtn && loginBtn) {
+            registerBtn.classList.add("white-btn");
+            loginBtn.classList.remove("white-btn");
+          }
+        }
+
+        if (loginBtn && registerBtn) {
+          loginBtn.addEventListener("click", showLogin);
+          registerBtn.addEventListener("click", showRegister);
+        }
+        if (toRegister)
+          toRegister.addEventListener("click", (e) => {
+            e.preventDefault();
+            showRegister();
+          });
+        if (toLogin)
+          toLogin.addEventListener("click", (e) => {
+            e.preventDefault();
+            showLogin();
+          });
+      });
     </script>
-</body>
+  </body>
 </html>
